@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="個人專業簡介與作品集網站">
+  <title>個人自我介紹 | Portfolio</title>
+  <style>
+    /* 基礎重設與變數 */
+    :root {
+      --primary-color: #2563eb;
+      --text-color: #1f2937;
+      --bg-color: #f9fafb;
+      --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    /* 容器設定 */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 頁首與導覽 */
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* 區塊共用樣式 */
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Hero 主視覺區 */
+    .hero {
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* 技能卡片 */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    .skill-card ul {
+      list-style-position: inside;
+      color: #4b5563;
+    }
+
+    /* 專案作品區 */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: #4b5563;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-card .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background-color: #eff6ff;
+      color: var(--primary-color);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* 聯絡區與頁尾 */
+    .contact-info {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-color);
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 導覽列 -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">MyPortfolio</a>
+        <ul>
+          <li><a href="#about">關於我</a></li>
+          <li><a href="#skills">專業技能</a></li>
+          <li><a href="#projects">專案作品</a></li>
+          <li><a href="#contact">聯絡方式</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Hero 主視覺區塊 -->
+    <section class="hero">
+      <div class="container">
+        <h1>您好，我是 [您的姓名]</h1>
+        <p>專注於軟體開發、人工智慧與系統應用的工程師</p>
+        <a href="#projects" class="btn">瀏覽代表作品</a>
+      </div>
+    </section>
+
+    <!-- 3. 關於我 -->
+    <section id="about">
+      <div class="container">
+        <h2>關於我</h2>
+        <div style="max-width: 700px; margin: 0 auto; text-align: justify;">
+          <p>
+            熱愛探索技術與解決實際問題，具備跨領域的軟體實作經驗。
+            在求學與專案開發歷程中，持續鑽研網路架構、機器學習模型實作與演算法邏輯，
+            並致力於寫出兼具效能、安全與良好維護性的程式碼架構。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 專業技能 -->
+    <section id="skills">
+      <div class="container">
+        <h2>專業技能</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>程式語言</h3>
+            <ul>
+              <li>Python</li>
+              <li>C / C++</li>
+              <li>PHP & SQL</li>
+              <li>HTML / CSS / JS</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>人工智慧與視覺</h3>
+            <ul>
+              <li>OpenCV & MediaPipe</li>
+              <li>TensorFlow / Keras</li>
+              <li>影像分類與特徵偵測</li>
+              <li>資料前處理與分析</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>系統與網路安全</h3>
+            <ul>
+              <li>Wireshark 封包分析</li>
+              <li>基礎密碼學 (RSA, TLS)</li>
+              <li>物聯網 (ESP32, MQTT)</li>
+              <li>Git 版本控制</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 專案作品 -->
+    <section id="projects">
+      <div class="container">
+        <h2>精選專案</h2>
+        <div class="projects-grid">
+          <!-- 專案 1 -->
+          <article class="project-card">
+            <div>
+              <h3>電腦視覺專案：專注力追蹤系統</h3>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">MediaPipe</span>
+              </div>
+              <p>結合臉部特徵偵測與人因工程研究，即時追蹤使用者視線與作息狀態，提供智慧休息提醒機制。</p>
+            </div>
+            <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">查看原始碼 &rarr;</a>
+          </article>
+
+          <!-- 專案 2 -->
+          <article class="project-card">
+            <div>
+              <h3>網路安全分析與加密工具</h3>
+              <div class="tags">
+                <span class="tag">C / C++</span>
+                <span class="tag">Cryptography</span>
+                <span class="tag">Wireshark</span>
+              </div>
+              <p>實作經典與現代加密演算法（如 RSA、ElGamal），並使用封包擷取工具驗證通訊安全與潛在漏洞。</p>
+            </div>
+            <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">查看原始碼 &rarr;</a>
+          </article>
+
+          <!-- 專案 3 -->
+          <article class="project-card">
+            <div>
+              <h3>IoT 微控制器感測應用</h3>
+              <div class="tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">Hardware</span>
+              </div>
+              <p>運用 ESP32 進行感測器訊號擷取（ADC/I2C），並透過 MQTT 協定將環境監測數據同步至雲端介面。</p>
+            </div>
+            <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">查看原始碼 &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 聯絡方式 -->
+    <section id="contact">
+      <div class="container">
+        <h2>聯絡方式</h2>
+        <div class="contact-info">
+          <p>如果您對我的專案感興趣，或有任何技術合作機會，歡迎隨時與我聯繫：</p>
+          <p><strong>Email:</strong> <a href="mailto:your.email@example.com" style="color: var(--primary-color);">your.email@example.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">github.com/your-username</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. 頁尾 -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 個人自我介紹網站. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
